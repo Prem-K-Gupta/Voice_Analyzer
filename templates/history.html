@@ -1,0 +1,91 @@
+
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription History</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .badge-pill {
+            font-size: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Transcription History</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Original Text</th>
+                            <th>Translated Text</th>
+                            <th>Date</th>
+                            <th>Word Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transcription in transcriptions %}
+                        <tr>
+                            <td>{{ transcription.text }}</td>
+                            <td>{{ transcription.translated_text }}</td>
+                            <td>{{ transcription.created_at }}</td>
+                            <td>{{ analyze_text(transcription.translated_text) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h3 class="card-title">Global Word Frequency</h3>
+                <ul class="list-group">
+                    {% for word, count in global_word_frequency.items() %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ word }}
+                        <span class="badge badge-primary badge-pill">{{ count }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary"><i class="fas fa-home"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

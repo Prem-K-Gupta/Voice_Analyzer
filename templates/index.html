@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Analyzer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        .btn-primary, .btn-secondary {
+            width: 200px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .alert {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Voice Analyzer</h1>
+
+        <div class="text-center">
+            <!-- Start Recording Button -->
+            <button id="start-btn" class="btn btn-primary btn-lg">
+                <i class="fas fa-microphone"></i> Start Recording
+            </button>
+            <!-- View History Button -->
+            <button id="history-btn" onclick="window.location.href='/history'" class="btn btn-secondary btn-lg ml-3">
+                <i class="fas fa-history"></i> View History
+            </button>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Transcription</h3>
+                    <p id="transcription" class="alert alert-info">Your transcription will appear here...</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h3 class="card-title">Word Frequency</h3>
+                    <p id="word-frequency" class="alert alert-warning">Word frequency analysis will appear here...</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h3 class="card-title">Top 3 Unique Phrases</h3>
+                    <p id="top-phrases" class="alert alert-success">Top phrases will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
+
+
